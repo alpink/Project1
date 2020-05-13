@@ -87,4 +87,6 @@ th,td{
 .full{
 	width: 100%;
 }
-
+.red{
+	background-color:red;
+}

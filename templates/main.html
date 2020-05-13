@@ -22,22 +22,13 @@
 				<section>
 					<h3>Register or Logon</h3>
 					<p>
-					{% if code == 404 %}
-						<h4 class="red">There was an error with your details. Please try again.</h4>
-					{% elif code == "new" %}
-						<h4>You are now registered. Please logon.</h4>
-					{% endif %}
-				</section>
-				<section>
-					<form action="{{ url_for('logon') }}" method="POST">
+					<form action="{{ url_for('logon') }}" method="post">
 				        <input type="text" name="name" placeholder="Enter your Username">
 				        <input type="password" name="password" placeholder="*****">
-				        <button>Logon</button>
+				        <button>Submit</button>
+				        
 				    </form>
-				    <p>&nbsp;</p>
-					<form action="{{ url_for('register') }}" method="GET">
-						<button>Register</button>
-				    </form>
+					</p>
 				</section>
 			</div>
 		</div>

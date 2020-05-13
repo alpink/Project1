@@ -4,8 +4,7 @@
 	<title>Book Reviews</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">     
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="{{ url_for('static', filename='project1.css') }}">
-
+	<link rel="stylesheet" href="static/project1.css">
 </head>
 
 <body>
@@ -20,24 +19,16 @@
 			</div>
 			<div class="col-9">
 				<section>
-					<h3>Register or Logon</h3>
-					<p>
-					{% if code == 404 %}
-						<h4 class="red">There was an error with your details. Please try again.</h4>
-					{% elif code == "new" %}
-						<h4>You are now registered. Please logon.</h4>
-					{% endif %}
-				</section>
-				<section>
-					<form action="{{ url_for('logon') }}" method="POST">
-				        <input type="text" name="name" placeholder="Enter your Username">
-				        <input type="password" name="password" placeholder="*****">
-				        <button>Logon</button>
-				    </form>
+					<h3>New User</h3>
+					<ul>
+						<form action="{{ url_for('adduser') }}" method="POST">
+					        <input type="text" name="name" placeholder="Enter a Username">
+					        <input type="password" name="password">
+					        <button>Register</button>
+				    	</form>
 				    <p>&nbsp;</p>
-					<form action="{{ url_for('register') }}" method="GET">
-						<button>Register</button>
-				    </form>
+   					 </ul>
+
 				</section>
 			</div>
 		</div>
