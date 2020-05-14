@@ -1,38 +1,31 @@
-﻿<!DOCTYPE html">
-<html>
-<head>
-	<title>Book Reviews</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">     
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="{{ url_for('static', filename='project1.css') }}">
+﻿{% extends "layout.html" %}
 
-</head>
+{% block body %}
 
-<body>
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-12">
-				<header>Book Reviews</header>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-3">
-			</div>
-			<div class="col-9">
-				<section>
-					<h3>Register or Logon</h3>
-					<p>
-					<form action="{{ url_for('logon') }}" method="post">
-				        <input type="text" name="name" placeholder="Enter your Username">
-				        <input type="password" name="password" placeholder="*****">
-				        <button>Submit</button>
-				        
-				    </form>
-					</p>
-				</section>
-			</div>
-		</div>
-	</div>
-</body>
+	<section>
+		<ul class="nav justify-content-center">
+		  <li class="nav-item">
+		    <a class="nav-link" "larger" href="#">My Review</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" "larger" href="{{ url_for('index')}}">Logout</a>
+		  </li>
+		</ul>
+	</section>
+		
+	<section>
+		<h2>Search for a review</h2>
+		<form>
+			<div class="form-group">
+				<p>Please enter details into at least one search criteria.</p>
+				<input class="form-control form-control-lg" id ="title" type="text" placeholder="Enter book title or part of a title">
+				<input class="form-control form-control-lg" id="isbn" type="text" placeholder="Enter an ISBN">
+				<input class="form-control form-control-lg" id="author" type="text" placeholder="Enter name of author">
+				<button type="submit" class="btn btn-primary mb-2">SEARCH</button>
+    		</div>
+		</form>
+	
+	</section>
+	
+{% endblock %}
 
-</html>

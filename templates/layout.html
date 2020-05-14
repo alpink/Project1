@@ -7,28 +7,17 @@
 	<link rel="stylesheet" href="{{ url_for('static', filename='project1.css') }}">
 </head>
 
-<body>
-	<div class="container-fluid">
-		<header>Books</header>
-	</div>
-	<div class="row">
-		<div class="col-3">
-			<section>
-				<p>&nbsp;</p>
-				<p>&nbsp;</p>
-				<p>&nbsp;</p>
-				<p>&nbsp;</p>
-				<p>&nbsp;</p>
-			</section>
-		</div>
-		<div class="col-9">
-			<section>
-				<h3>Section 1</h3>
+	<body>
+		<section>
+				<header>Book Reviews</header>
+		</section>
 
-			</section>
-		</div>
-	</div>
+		<section>
+			{% block body %}
+       	 	{% endblock %}
+		</section>
 
-</body>
 
+
+	</body>
 </html>

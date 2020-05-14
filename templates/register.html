@@ -1,38 +1,22 @@
-﻿<!DOCTYPE html">
-<html>
-<head>
-	<title>Book Reviews</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">     
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="static/project1.css">
-</head>
+﻿{% extends "layout.html" %}
 
-<body>
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-12">
-				<header>Book Reviews</header>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-3">
-			</div>
-			<div class="col-9">
-				<section>
-					<h3>New User</h3>
-					<ul>
-						<form action="{{ url_for('adduser') }}" method="POST">
-					        <input type="text" name="name" placeholder="Enter a Username">
-					        <input type="password" name="password">
-					        <button>Register</button>
-				    	</form>
-				    <p>&nbsp;</p>
-   					 </ul>
+{% block body %}
 
-				</section>
-			</div>
-		</div>
-	</div>
-</body>
+		
+		
+	<section>
+		<h3>Register as a New User</h3>
+		<ul>
+			<form action="{{ url_for('adduser') }}" method="POST">
+		        <input type="text" name="name" placeholder="Enter a Username">
+		        <input type="password" name="password" placeholder="Enter a password">
+		        <button>Register</button>
+	    	</form>
+	    <p>&nbsp;</p>
+		 </ul>
 
-</html>
+	</section>
+	
+{% endblock %}
+
+
