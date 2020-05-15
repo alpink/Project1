@@ -1,0 +1,48 @@
+﻿
+{% extends "layout.html" %}
+
+{% block body %}
+
+	<section>
+		<ul class="nav justify-content-center">
+		  <li class="nav-item">
+		    <a class="nav-link" "larger" href="#">My Reviews</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" "larger" href="{{ url_for('index')}}">Logout</a>
+		  </li>
+		</ul>
+	</section>
+		
+	<section>
+
+		<table cellpadding="5" cellspacing="5">
+			<tr>
+				<th>ISBN</th>
+				<th>Title</th>
+				<th>Author</th>
+				<th>Average Rating</th>
+				<th>Number of Ratings</th>
+				<th>Number of Reviews</th>
+			</tr>
+			{{count=0}}
+			{% for book in books %}
+				<tr>
+				    <td>{{isbn}}</td>
+				    <td>{{title}}</td>
+				    <td>{{author}}</td>
+				    {% for item in data[{{count}}] %}
+				    	<td>item</td>
+				</tr>
+				{{count++}}
+			{% endfor %}
+		</table>
+		
+	</section>
+	
+{% endblock %}
+
+{% block results %}
+
+
+{% endblock %}

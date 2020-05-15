@@ -46,19 +46,19 @@ header{
 }
 
 table{
-	border:None;
+	border:thin;
 	border-color:blue;
 	border-collapse:collapse;
 	width:80%;
 }
 
 th{
-	background-color:deepskyblue;
-	color: white;
+	background-color:lightskyblue;
+	color: black;
 }
 th,td{
 	padding:5px;
-	text-align:center;
+	text-align:left;
 }
 
 .rightSide{

@@ -1,0 +1,39 @@
+﻿
+{% extends "layout.html" %}
+
+{% block body %}
+
+	<section>
+		<ul class="nav justify-content-center">
+		  <li class="nav-item">
+		    <a class="nav-link" "larger" href="#">My Reviews</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" "larger" href="{{ url_for('index')}}">Logout</a>
+		  </li>
+		</ul>
+	</section>
+		
+	<section>
+
+		<table cellpadding="5" cellspacing="5">
+			<tr>
+				<th>ISBN</th>
+				<th>Title</th>
+				<th>Author</th>
+			</tr>
+			<tr>
+			    <td>{{i}}</td>
+			    <td>{{t}}</td>
+			    <td>{{a}}</td>
+			</tr>
+		</table>
+		
+	</section>
+	
+{% endblock %}
+	<p>Test</p>
+{% block results %}
+
+
+{% endblock %}

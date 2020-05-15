@@ -1,4 +1,5 @@
-﻿{% extends "layout.html" %}
+﻿
+{% extends "layout.html" %}
 
 {% block body %}
 
@@ -15,12 +16,16 @@
 		
 	<section>
 		<h2>Search for a review</h2>
-		<form>
+		<form action="{{ url_for('results')}}" method="post">
 			<div class="form-group">
+				{% if error == 1 %}
+					<h3 class="red">You did not enter any details</h3>
+				{% endif %}
 				<p>Please enter details into at least one search criteria.</p>
-				<input class="form-control form-control-lg" id ="title" type="text" placeholder="Enter book title or part of a title">
-				<input class="form-control form-control-lg" id="isbn" type="text" placeholder="Enter an ISBN">
-				<input class="form-control form-control-lg" id="author" type="text" placeholder="Enter name of author">
+				<input class="form-control form-control-lg" name ="title" type="text" placeholder="Enter book title or part of a title">
+				<input class="form-control form-control-lg" name="isbn" type="text" placeholder="Enter an ISBN">
+				<input class="form-control form-control-lg" name="author" type="text" placeholder="Enter name of author">
+				<br>
 				<button type="submit" class="btn btn-primary mb-2">SEARCH</button>
     		</div>
 		</form>
@@ -29,3 +34,7 @@
 	
 {% endblock %}
 
+{% block results %}
+
+
+{% endblock %}

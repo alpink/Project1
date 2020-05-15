@@ -38,8 +38,8 @@ def logoff():
     return render_template("index.html", code="")
 
 
-@app.route("/logon", methods=["POST"])
-def logon():
+@app.route("/main", methods=["POST"])
+def main():
     name = request.form.get("name")
     pwd = request.form.get("password")
     sqlString = f"SELECT * FROM users WHERE username= '{name}';"
@@ -47,11 +47,13 @@ def logon():
     if userrecord is not None:
         if name == userrecord.username and pwd == userrecord.password:
             session['user'] = name
-            return render_template("main.html")
+            return render_template("main.html",error=0)
         else:
             return render_template("index.html", code=404)
     else:
         return render_template("index.html", code=404)
+
+
 
 @app.route("/adduser", methods=["POST"])
 def adduser():
@@ -62,3 +64,48 @@ def adduser():
     db.commit()
     return render_template("index.html", code="new")
 
+@app.route("/results",methods=["POST"])
+def results():
+    author = request.form.get("author")
+    isbn = request.form.get("isbn")
+    title = request.form.get("title")
+
+    if title != "":
+        sqlString = f"SELECT * FROM books WHERE title LIKE  '%{title}%';"
+    elif isbn != "":
+        sqlString = f"SELECT * FROM books WHERE isbn LIKE '{isbn}%';"
+    elif author != "":
+        sqlString = f"SELECT * FROM books WHERE author LIKE '%{author}%';"
+    else:
+        #No values entered
+        return render_template("main.html",error=1)
+    
+    books = db.execute(sqlString).fetchall()
+    
+    datalist = []
+    return render_template("search_results.html",books=books,data=datalist)
+    
+    for book in books:
+        #print(f"{book.isbn:<15}{book.title:<30}{book.author:<30}")
+        isbn = book.isbn
+        if len(isbn)==9: isbn = '0'+isbn        
+        #res = requests.get("https://www.goodreads.com/book/review_counts.json", params={"key": "HG8RtIxpIH6ZPZbdN45bfw", "isbns":{isbn} })
+        
+        if res.status_code != 200:
+            datalist.append(['-','-','-'])
+        else:
+            data=res.json()
+            bookdata=data["books"]
+
+            average      = bookdata[0]["average_rating"]
+            rate_count   = bookdata[0]['ratings_count']
+            review_count = bookdata[0]['reviews_count']
+            datalist.append([average,rate_count,review_count])
+        return render_template("search_results.html",books=books,data=datalist)
+     
+
+
+        
+    
+
+    
