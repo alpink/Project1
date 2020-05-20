@@ -6,7 +6,7 @@
 	<section>
 		<ul class="nav justify-content-center">
 		  <li class="nav-item">
-		    <a class="nav-link" "larger" href="#">My Review</a>
+		    <a class="nav-link" "larger" href="{{ url_for('myreviews') }}" >My Reviews</a>		  
 		  </li>
 		  <li class="nav-item">
 		    <a class="nav-link" "larger" href="{{ url_for('index')}}">Logout</a>
@@ -15,12 +15,13 @@
 	</section>
 		
 	<section>
-		<h2>Search for a review</h2>
+		<h2>{{user}}: Search for a review</h2>
 		<form action="{{ url_for('results')}}" method="post">
 			<div class="form-group">
 				{% if error == 1 %}
 					<h3 class="red">You did not enter any details</h3>
 				{% endif %}
+				<p>Welcome {{user}}.<br></p>
 				<p>Please enter details into at least one search criteria.</p>
 				<input class="form-control form-control-lg" name ="title" type="text" placeholder="Enter book title or part of a title">
 				<input class="form-control form-control-lg" name="isbn" type="text" placeholder="Enter an ISBN">

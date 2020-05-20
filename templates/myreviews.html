@@ -1,0 +1,43 @@
+﻿
+{% extends "layout.html" %}
+
+{% block body %}
+
+	<section>
+		<ul class="nav justify-content-center">
+		  <li class="nav-item">
+		    <a class="nav-link" "larger" href="{{ url_for('main',error=0) }}">Search Page</a>
+		  </li>
+
+		  <li class="nav-item">
+		    <a class="nav-link" "larger" href="{{ url_for('index')}}">Logout</a>
+		  </li>
+		</ul>
+	</section>
+		
+	<section>
+		<h3 class="centred">My Reviews</h3>
+		<hr>
+		<table cellpadding="5" cellspacing="5" width="100%">
+			<tr>
+				<th width="15%">Title</th>			
+				<th width="15%">Author</th>
+				<th width="10%">My Rating</th>
+				<th width="60%">My Review</th>
+			</tr>
+			{% for review in reviews %}
+				<tr>
+					<td>{{review.title}}</td>
+				    <td>{{review.author}}</td>
+				    <td>{{review.rating}}</td>
+				    <td>{{review.review}}</td>
+				</tr>
+			{% endfor %}
+		</table>
+		
+	</section>
+	
+{% endblock %}
+
+{% block results %}
+{% endblock %}

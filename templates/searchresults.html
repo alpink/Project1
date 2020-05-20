@@ -15,23 +15,25 @@
 	</section>
 		
 	<section>
-
+	
 		<table cellpadding="5" cellspacing="5">
 			<tr>
-				<th>&nbsp;</th>
+				<td>&nbsp;</td>			
 				<th>ISBN</th>
 				<th>Title</th>
 				<th>Author</th>
 			</tr>
 			{% for book in books %}
 				<tr>
-				<form action="{{ url_for ('searc_results2') }}" method="post">
+				<form action="{{ url_for ('bookdetails') }}" method="post">
 					<td><button>Get details</button></td>
 				    <td>{{book.isbn}}</td>
 				    <td>{{book.title}}</td>
 				    <td>{{book.author}}</td>
-				</form>
-				</tr>
+				    <input type="hidden" name="isbn" value="{{book.isbn}}">
+				    <input type="hidden" name="title" value="{{book.title}}">
+			    	<input type="hidden" name="author" value="{{book.author}}">
+				</form>			
 			{% endfor %}
 		</table>
 		

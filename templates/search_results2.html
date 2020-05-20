@@ -6,33 +6,26 @@
 	<section>
 		<ul class="nav justify-content-center">
 		  <li class="nav-item">
-		    <a class="nav-link" "larger" href="#">My Reviews</a>
+		  <form method="post" action="{{ url_for('addreview') }}">
+		  <input type="hidden" name="isbn" value="'{{isbn}}'">
+		  <input type="hidden" name="author" value="'{{author}}'">
+		  <input type="hidden" name="title" value="'{{title}}'">
+		  <button>Add Review</button>
+		  </form>
 		  </li>
 		  <li class="nav-item">
 		    <a class="nav-link" "larger" href="{{ url_for('index')}}">Logout</a>
 		  </li>
 		</ul>
 	</section>
-		
-	<section>
-
-		<table cellpadding="5" cellspacing="5">
-			<tr>
-				<th>ISBN</th>
-				<th>Title</th>
-				<th>Author</th>
-			</tr>
-			<tr>
-			    <td>{{i}}</td>
-			    <td>{{t}}</td>
-			    <td>{{a}}</td>
-			</tr>
-		</table>
-		
+	<section class="centred">
+		<h3>{{title}} by {{author}}</h3>
+		<p>isbn: {{isbn}} </p>
+		<hr>
+		<p>{% include 'widget.html' %}</p>
 	</section>
-	
 {% endblock %}
-	<p>Test</p>
+
 {% block results %}
 
 

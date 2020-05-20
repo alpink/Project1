@@ -46,7 +46,7 @@ header{
 }
 
 table{
-	border:thin;
+	border:thick;
 	border-color:blue;
 	border-collapse:collapse;
 	width:80%;
@@ -57,6 +57,7 @@ th{
 	color: black;
 }
 th,td{
+	border: thin;
 	padding:5px;
 	text-align:left;
 }
@@ -89,4 +90,7 @@ th,td{
 }
 .larger{
 	font-size:130%;
+}
+.textarea{
+	rows:5
 }

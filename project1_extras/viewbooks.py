@@ -1,4 +1,3 @@
-import csv
 import os
 import psycopg2
 
@@ -9,10 +8,10 @@ engine = create_engine(os.getenv("DATABASE_URL"))
 db = scoped_session(sessionmaker(bind=engine))
 
 def main():
-    sqlString = "CREATE TABLE reviews(id INT PRIMARY KEY, username VARCHAR NOT NULL, date DATE, rating INT NOT NULL, review VARCHAR);"
-    db.execute(sqlString)
-    db.commit()
-    
+
+    booklist = db.execute("SELECT * FROM books WHERE title LIKE '%love%';").fetchall()
+    for book in booklist:
+        print(book)
 
 
 if __name__ == "__main__":

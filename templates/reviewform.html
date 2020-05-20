@@ -1,0 +1,39 @@
+﻿
+{% extends "layout.html" %}
+
+{% block body %}
+
+	<section>
+		<ul class="nav justify-content-center">
+		  <li class="nav-item">
+		    <a class="nav-link" "larger" href="{{ url_for('myreviews') }}" >My Reviews</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" "larger" href="{{ url_for('index')}}">Logout</a>
+		  </li>
+		</ul>
+	</section>
+		
+	<section>
+		<h3>{{title}} by {{author}}</h3>
+		<hr>
+		<form action="{{ url_for('addnewreview')}}" method="post">
+			
+			 <input name="isbn" type="hidden" value="{{isbn}}">
+			 <input name="author" type="hidden" value="{{author}}">
+			 <input name="title" type="hidden" value="{{title}}">
+  			 <p>Enter your rating<br>
+ 			 <input name="rate" class="form-control form-control-lg" type="text"><br></p>
+			 <p>Enter your review<br>
+			 <textarea id="ta" "class="form-control form-control-lg" name="review" cols="60" rows="8"></textarea><br></p>
+			 <button type="submit">SAVE</button>
+		</form>
+	</section>
+	
+{% endblock %}
+
+{% block results %}
+
+
+{% endblock %}
+
